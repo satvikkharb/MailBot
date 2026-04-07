@@ -1,0 +1,96 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Dark futuristic theme — only dark mode */
+    --background: 218 25% 4%;          /* #060A0F */
+    --foreground: 210 40% 92%;         /* #D9E4EF */
+
+    --card: 218 22% 7%;                /* #0B1018 */
+    --card-foreground: 210 40% 92%;
+
+    --popover: 218 22% 7%;
+    --popover-foreground: 210 40% 92%;
+
+    --primary: 194 100% 50%;           /* #00C2FF — electric cyan */
+    --primary-foreground: 218 25% 4%;
+
+    --secondary: 216 18% 12%;          /* #14202E */
+    --secondary-foreground: 210 40% 92%;
+
+    --muted: 216 18% 12%;
+    --muted-foreground: 213 18% 47%;   /* #5E7A91 */
+
+    --accent: 194 100% 50%;
+    --accent-foreground: 218 25% 4%;
+
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 216 15% 14%;             /* #16202C */
+    --input: 216 15% 14%;
+    --ring: 194 100% 50%;
+
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
+  }
+  ::-webkit-scrollbar-track {
+    background: hsl(var(--background));
+  }
+  ::-webkit-scrollbar-thumb {
+    background: hsl(var(--border));
+    border-radius: 2px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--muted-foreground));
+  }
+
+  /* Selection */
+  ::selection {
+    background: rgba(0, 194, 255, 0.2);
+    color: hsl(var(--foreground));
+  }
+}
+
+@layer utilities {
+  .glow-cyan {
+    box-shadow: 0 0 20px rgba(0, 194, 255, 0.15);
+  }
+  .glow-cyan-md {
+    box-shadow: 0 0 40px rgba(0, 194, 255, 0.2);
+  }
+  .border-glow {
+    border-color: rgba(0, 194, 255, 0.4);
+    box-shadow: 0 0 10px rgba(0, 194, 255, 0.1);
+  }
+  .text-gradient-cyan {
+    background: linear-gradient(135deg, #00c2ff, #0080ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .bg-grid {
+    background-image:
+      linear-gradient(rgba(0, 194, 255, 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0, 194, 255, 0.03) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+}
